@@ -138,18 +138,8 @@ function judgeRound() {
         roundWinner = 'opponent';
         message = `相手の勝ち！ (+${playerCardValue + opponentCardValue}点)`;
     } else {
-        // 引き分けの場合は、前のラウンドの勝者がカードを得る
-        if (roundWinner === 'player') {
-            playerScore += playerCardValue + opponentCardValue;
-            message = `引き分け。前の勝者（あなた）がカードを獲得。 (+${playerCardValue + opponentCardValue}点)`;
-        } else if (roundWinner === 'opponent') {
-            opponentScore += playerCardValue + opponentCardValue;
-            message = `引き分け。前の勝者（相手）がカードを獲得。 (+${playerCardValue + opponentCardValue}点)`;
-        } else {
-            // 初回ラウンドが引き分けの場合
-            message = '引き分け。カードは場に残ります。';
-            // この実装ではカードは次のラウンドに持ち越されず、単純に得点なし
-        }
+        roundWinner = null; // 引き分けの場合、勝者なし
+        message = '引き分け。このラウンドの得点はありません。';
     }
 
     gameMessage.textContent = message;
