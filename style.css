@@ -132,3 +132,29 @@ body {
         font-size: 18px;
     }
 }
+
+/* 遊び方説明のスタイル */
+#rules-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#rules-container h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#rules-container p {
+    margin-bottom: 3px;
+}
+
+.hidden {
+    display: none;
+}

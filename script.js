@@ -9,6 +9,8 @@ const opponentScoreEl = document.getElementById('opponent-score');
 const gameMessage = document.getElementById('game-message');
 const startButton = document.getElementById('start-button');
 const modeCPU = document.getElementById('mode-cpu');
+const rulesToggleButton = document.getElementById('rules-toggle-button');
+const rulesContainer = document.getElementById('rules-container');
 
 let playerScore = 0;
 let opponentScore = 0;
@@ -16,6 +18,11 @@ let playerDeck = [];
 let opponentDeck = [];
 let isPlayerTurn = true;
 let roundWinner = null; // 'player' or 'opponent'
+
+// 遊び方ボタンのイベントリスナー
+rulesToggleButton.addEventListener('click', () => {
+    rulesContainer.classList.toggle('hidden');
+});
 
 // ゲーム開始
 startButton.addEventListener('click', () => {
