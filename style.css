@@ -106,3 +106,29 @@ body {
     color: green;
     min-height: 40px;
 }
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column; /* 狭い画面では縦積みにする */
+        align-items: center;
+    }
+
+    .player-area,
+    .center-area {
+        width: 90%; /* 横幅を画面に合わせる */
+        margin-bottom: 20px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
