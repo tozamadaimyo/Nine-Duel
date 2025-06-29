@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字カードバトル</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>数字カードバトル</h1>
+
+        <div class="game-area">
+            <div class="player-area opponent">
+                <h2>相手の手札</h2>
+                <div class="hand" id="opponent-hand"></div>
+                <div class="played-card" id="opponent-played-card"></div>
+                <div class="gained-cards" id="opponent-gained-cards"></div>
+            </div>
+
+            <div class="center-area">
+                <div class="message" id="game-message"></div>
+                <div class="score-area">
+                    <p>あなた: <span id="player-score">0</span>点</p>
+                    <p>相手: <span id="opponent-score">0</span>点</p>
+                </div>
+                <div class="mode-selection">
+                    <input type="radio" id="mode-cpu" name="game-mode" value="cpu" checked>
+                    <label for="mode-cpu">対CPU戦</label>
+                    <input type="radio" id="mode-player" name="game-mode" value="player">
+                    <label for="mode-player">対人戦</label>
+                </div>
+                <button id="start-button">ゲーム開始</button>
+            </div>
+
+            <div class="player-area player">
+                <h2>あなたの手札</h2>
+                <div class="hand" id="player-hand"></div>
+                <div class="played-card" id="player-played-card"></div>
+                <div class="gained-cards" id="player-gained-cards"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

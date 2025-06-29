@@ -1,0 +1,108 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.player-area {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 200px;
+}
+
+.center-area {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.card {
+    width: 40px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.player-card-front {
+    background-color: lightblue;
+}
+
+.opponent-card-front {
+    background-color: lightcoral;
+}
+
+.card-back {
+    background-color: #999;
+}
+
+.played-card {
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gained-cards {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gained-card {
+    width: 30px;
+    height: 45px;
+    font-size: 14px;
+    margin: 2px;
+    cursor: default;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.message {
+    font-weight: bold;
+    color: green;
+    min-height: 40px;
+}
