@@ -92,36 +92,36 @@ function createCard(value, player, isFront = true) {
     return card;
 }
 
-// プレイヤーがカードを出す
-function playCard(cardElement, cardValue) {
+// プレイヤーがカードを出す（同時プレイ処理）
+function playCard(cardElement, playerCardValue) {
     if (!isPlayerTurn) return;
+    isPlayerTurn = false; // ダブルクリック防止
 
+    // --- プレイヤーの処理 ---
+    const playerCardIndex = playerDeck.indexOf(playerCardValue);
+    playerDeck.splice(playerCardIndex, 1);
+
+    // --- 相手の処理 ---
+    const opponentCardValue = opponentDeck.pop(); // シンプルに最後のカードを出す
+
+    // --- 手札の表示を更新 ---
+    renderHands();
+
+    // --- 両方のカードを同時に場に出す ---
+    gameMessage.textContent = 'せーの！';
     playerPlayedCard.innerHTML = '';
-    playerPlayedCard.appendChild(createCard(cardValue, 'player'));
-
-    // 手札からカードを削除
-    const cardIndex = playerDeck.indexOf(cardValue);
-    playerDeck.splice(cardIndex, 1);
-    playerHand.removeChild(cardElement);
-
-    isPlayerTurn = false;
-    gameMessage.textContent = '相手の番です。';
-
-    // CPUのターン
-    setTimeout(opponentTurn, 1000);
-}
-
-// 相手（CPU）のターン
-function opponentTurn() {
-    const cardValue = opponentDeck.pop(); // シンプルに最後のカードを出す
     opponentPlayedCard.innerHTML = '';
-    opponentPlayedCard.appendChild(createCard(cardValue, 'opponent'));
 
-    renderHands(); // 相手の手札が減ったのを（裏面のまま）反映
+    // 少し間を置いてカードを表示して判定へ
+    setTimeout(() => {
+        playerPlayedCard.appendChild(createCard(playerCardValue, 'player'));
+        opponentPlayedCard.appendChild(createCard(opponentCardValue, 'opponent'));
 
-    // 勝敗判定
-    setTimeout(judgeRound, 1000);
+        setTimeout(judgeRound, 1000); // 1秒後に勝敗判定
+    }, 500); // 0.5秒後にカードオープン
 }
+
+// 相手（CPU）のターンはplayCardに統合されたため不要になりました。
 
 // ラウンドの勝敗判定
 function judgeRound() {
